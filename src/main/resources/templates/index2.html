@@ -6,6 +6,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <html lang=”en” xmlns:th=”https://www.thymeleaf.org”>
 
     <title>Dave's list</title>
 
@@ -16,7 +17,22 @@
     <link href="bootstrap.css.css" rel="stylesheet">
 </head>
 
-<body><form style="border: 1px dashed rgb(66, 133, 244);"></form>
+<body>
+<!-- Custom user drop down -->
+<li class="dropdown">
+    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+        <span class="profile-ava">
+            <img alt="" src="@{ '/img/photos' +  ${#authentication.getPrincipal().getUsername()} + '.jpg' }">
+        </span>
+        <span class="username" th:text="${#authentication.getPrincipal().getUsername()}">Guest</span>
+        <b class="caret"></b>
+    </a>
+
+</li>
+
+
+
+<form style="border: 1px dashed rgb(66, 133, 244);"></form>
 
 <div class="container">
     <div class="header clearfix">
